@@ -135,11 +135,11 @@
       </div>
 
       <div class="form-group">
-        <label for="verified"><strong>Verification</strong> <span class="label-fa">(وضعیت تأیید سائورگ)</span></label>
+        <label for="verified"><strong>Verification</strong> <span class="label-fa">(وضعیت سائورگ)</span></label>
         <select id="verified" name="Saorg Verified" required>
           <option value="" disabled selected>Select verification status</option>
-          <option value="Yes">Verified (تایید شده)</option>
-          <option value="No">Not Verified (تایید نشده)</option>
+          <option value="Yes">Verified (بلامانع)</option>
+          <option value="No">Not Verified (غیربلامانع)</option>
         </select>
       </div>
 
@@ -162,7 +162,6 @@
   </div>
 
   <script>
-    // مقدار پیش‌فرض برای تاریخ امروز، به‌صورت سازگار با تقویم مرورگر
     window.addEventListener('DOMContentLoaded', () => {
       const dateInput = document.getElementById('entryDate');
       const today = new Date().toISOString().split('T')[0];
