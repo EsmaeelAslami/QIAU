@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+تاریخت درست نیست من میخوام که طرف تاریخ رو خودش انتخاب کنه و تو باید یک تاریخ شمسی اد کنی و همینطور در قسمت رشته فقط بنویس که رشته تحصیلی تون رو بنویسد و گزینه سلکت رو بردار و یک کادر دیگراضافه کن که ایمیل طرف رو هم دریافت کنه و دقت بیشتری روی تاریخ داشته باشه و درست تاریخ شمسی را اضافه کن                                                                                               <!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>فرم ثبت‌نام دانشجویی</title>
+  <title>Student Registration QIAU</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
   <style>
     @font-face {
       font-family: 'Times New Roman';
       src: local('Times New Roman');
     }
-
+    
     :root {
       --primary-blue: #1e3a8a;
       --secondary-blue: #3b82f6;
@@ -19,16 +19,16 @@
       --dark-text: #1e293b;
       --accent-gold: #d4a017;
     }
-
+    
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       font-family: 'Times New Roman', Times, serif;
     }
-
+    
     body {
-      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -36,81 +36,109 @@
       padding: 20px;
       color: var(--dark-text);
     }
-
+    
     .container {
       width: 100%;
-      max-width: 650px;
+      max-width: 600px;
       animation: fadeIn 0.8s ease-out;
     }
-
+    
     .form-header {
       text-align: center;
       margin-bottom: 30px;
       color: white;
+      position: relative;
     }
-
+    
     .form-header h2 {
       font-size: 32px;
       font-weight: bold;
       margin-bottom: 15px;
+      position: relative;
       display: inline-block;
-      border-bottom: 3px solid var(--accent-gold);
-      padding-bottom: 5px;
+      padding-bottom: 10px;
     }
-
+    
+    .form-header h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--accent-gold);
+    }
+    
     form {
       background: var(--light-cream);
       padding: 40px;
       border-radius: 15px;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      direction: rtl;
     }
-
+    
+    form:hover {
+      transform: translateY(-5px);
+    }
+    
     .form-group {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
       margin-bottom: 25px;
+      position: relative;
     }
-
+    
     label {
-      width: 40%;
+      display: block;
+      margin-bottom: 10px;
       font-weight: bold;
       color: var(--primary-blue);
       font-size: 16px;
-      text-align: right;
     }
-
+    
     .label-fa {
-      display: block;
       font-style: normal;
       color: #64748b;
       font-size: 14px;
       margin-top: 3px;
     }
-
-    input, select, .datepicker-container {
-      width: 60%;
-      padding: 12px 16px;
+    
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 18px;
       border: 2px solid #d1d5db;
       border-radius: 10px;
       font-size: 16px;
+      transition: all 0.3s;
       background-color: white;
       font-family: 'Times New Roman', Times, serif;
     }
-
-    .datepicker-input {
-      text-align: center;
-      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='gray' xmlns='http://www.w3.org/2000/svg' height='24' width='24'%3e%3cpath d='M7 10h5v5H7zM3 21q-.825 0-1.412-.587Q1 19.825 1 19V5q0-.825.588-1.412Q2.175 3 3 3h1V1h2v2h10V1h2v2h1q.825 0 1.413.588Q23 4.175 23 5v14q0 .825-.587 1.413Q21.825 21 21 21Zm0-2h18V10H3Zm0-11h18V5H3Z'/%3e%3c/svg%3e");
-      background-position: left 10px center;
-      background-repeat: no-repeat;
-      background-size: 20px;
-      cursor: pointer;
+    
+    input:focus, select:focus {
+      border-color: var(--secondary-blue);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
     }
-
+    
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 1em;
+    }
+    
+    .select-search {
+      position: relative;
+    }
+    
+    .select-search input {
+      width: 100%;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+    
     button {
       width: 100%;
       padding: 16px;
@@ -124,33 +152,54 @@
       transition: all 0.3s;
       margin-top: 20px;
       box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+      letter-spacing: 1px;
     }
-
+    
     button:hover {
       background: linear-gradient(to right, var(--secondary-blue), var(--primary-blue));
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
     }
-
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
     .form-footer {
       text-align: center;
       margin-top: 25px;
       font-size: 14px;
       color: #4b5563;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    
+    .datepicker-container {
+      position: relative;
     }
-
-    @media (max-width: 768px) {
-      .form-group {
-        flex-direction: column;
-        align-items: stretch;
+    
+    .datepicker-input {
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
-
-      label, input, select, .datepicker-container {
-        width: 100%;
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      form {
+        padding: 30px;
+      }
+      
+      .form-header h2 {
+        font-size: 28px;
       }
     }
   </style>
@@ -158,46 +207,66 @@
 <body>
   <div class="container">
     <div class="form-header">
-      <h2>فرم ثبت‌نام دانشجویی</h2>
+      <h2>Student Registration QIAU</h2>
     </div>
-    <form action="#" method="POST">
+    
+    <form action="https://formspree.io/f/mpwdbygz" method="POST">
       <div class="form-group">
-        <label for="fullname">نام کامل <span class="label-fa">(Full Name)</span></label>
-        <input type="text" id="fullname" name="fullname" required placeholder="نام و نام خانوادگی خود را وارد کنید">
+        <label for="fullname">Full Name <span class="label-fa">(نام کامل)</span></label>
+        <input type="text" id="fullname" name="Full Name" required placeholder="Enter your full name">
       </div>
+      
       <div class="form-group">
-        <label for="studentId">شماره دانشجویی <span class="label-fa">(Student ID)</span></label>
-        <input type="text" id="studentId" name="studentId" required placeholder="شماره دانشجویی">
+        <label for="studentId">Student ID <span class="label-fa">(شماره دانشجویی)</span></label>
+        <input type="text" id="studentId" name="Student Number" required placeholder="Enter your student ID">
       </div>
+      
       <div class="form-group">
-        <label for="email">ایمیل <span class="label-fa">(Email)</span></label>
-        <input type="email" id="email" name="email" required placeholder="ایمیل خود را وارد کنید">
+        <label for="saaorg">SaaOrg Code <span class="label-fa">(کد سائورگ)</span></label>
+        <input type="text" id="saaorg" name="SaaOrg Code" required placeholder="Enter your SaaOrg code">
       </div>
+      
       <div class="form-group">
-        <label for="saaorg">کد سائورگ <span class="label-fa">(SaaOrg Code)</span></label>
-        <input type="text" id="saaorg" name="saaorg" required placeholder="کد سازمانی شما">
-      </div>
-      <div class="form-group">
-        <label for="verified">تایید کد سائورگ <span class="label-fa">(SaaOrg Verification)</span></label>
-        <select id="verified" name="verified" required>
-          <option value="" disabled selected>انتخاب وضعیت تایید</option>
-          <option value="Yes">تایید شده</option>
-          <option value="No">تایید نشده</option>
+        <label for="verified">SaaOrg Verification <span class="label-fa">(وضعیت تایید کد سائورگ)</span></label>
+        <select id="verified" name="SaaOrg Verified" required>
+          <option value="" disabled selected>Select verification status</option>
+          <option value="Yes">Verified (تایید شده)</option>
+          <option value="No">Not Verified (تایید نشده)</option>
         </select>
       </div>
+      
       <div class="form-group">
-        <label for="entryDate">تاریخ ورود <span class="label-fa">(Entry Date)</span></label>
+        <label for="entryDate">Entry Date <span class="label-fa">(تاریخ ورود)</span></label>
         <div class="datepicker-container">
-          <input type="text" id="entryDate" name="entryDate" class="datepicker-input" readonly required placeholder="انتخاب تاریخ ورود">
+          <input type="text" id="entryDate" name="Entry Date" class="datepicker-input" required placeholder="Select date" readonly>
         </div>
       </div>
-      <div class="form-group">
-        <label for="major">رشته تحصیلی <span class="label-fa">(Major)</span></label>
-        <input type="text" id="major" name="major" required placeholder="مثال: مهندسی پزشکی">
+      
+      <div class="form-group select-search">
+        <label for="majorSearch">Search Major <span class="label-fa">(جستجوی رشته تحصیلی)</span></label>
+        <input type="text" id="majorSearch" placeholder="Search for major...">
+        <label for="major">Major <span class="label-fa">(رشته تحصیلی)</span></label>
+        <select id="major" name="Major" required>
+          <option value="" disabled selected>Select your major</option>
+          <option value="Biomedical Engineering">Biomedical Engineering (مهندسی پزشکی)</option>
+          <option value="Electrical Engineering">Electrical Engineering (مهندسی برق)</option>
+          <option value="Computer Engineering">Computer Engineering (مهندسی کامپیوتر)</option>
+          <option value="Mechanical Engineering">Mechanical Engineering (مهندسی مکانیک)</option>
+          <option value="Civil Engineering">Civil Engineering (مهندسی عمران)</option>
+          <option value="Industrial Engineering">Industrial Engineering (مهندسی صنایع)</option>
+          <option value="Chemical Engineering">Chemical Engineering (مهندسی شیمی)</option>
+          <option value="Medicine">Medicine (پزشکی)</option>
+          <option value="Dentistry">Dentistry (دندانپزشکی)</option>
+          <option value="Law">Law (حقوق)</option>
+          <option value="Management">Management (مدیریت)</option>
+          <option value="Other">Other (سایر)</option>
+        </select>
       </div>
-      <button type="submit">ثبت‌نام</button>
+      
+      <button type="submit">REGISTER</button>
+      
       <div class="form-footer">
-        اطلاعات شما محرمانه خواهد ماند.
+        <p>YOUR INFORMATION WILL BE KEPT CONFIDENTIAL</p>
       </div>
     </form>
   </div>
@@ -206,7 +275,8 @@
   <script src="https://cdn.jsdelivr.net/npm/persian-date@1.2.0/dist/persian-date.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
   <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
+      // Initialize Persian Datepicker
       $("#entryDate").pDatepicker({
         format: 'YYYY/MM/DD',
         autoClose: true,
@@ -217,40 +287,15 @@
             locale: 'fa',
             showHint: true
           }
-        },
-        toolbox: {
-          calendarSwitch: {
-            enabled: true,
-            format: 'MMMM'
-          },
-          todayButton: {
-            enabled: true,
-            text: { fa: 'امروز' }
-          },
-          submitButton: {
-            enabled: true,
-            text: { fa: 'تایید' }
-          }
-        },
-        navigator: {
-          scroll: { enabled: true },
-          text: {
-            btnNextText: 'بعدی',
-            btnPrevText: 'قبلی'
-          }
-        },
-        dayPicker: {
-          enabled: true,
-          scrollEnabled: true,
-          titleFormat: 'YYYY MMMM'
-        },
-        monthPicker: { enabled: true, scrollEnabled: true },
-        yearPicker: { enabled: true, scrollEnabled: true },
-        timePicker: { enabled: false },
-        onlySelectOnDate: true,
-        checkDate: function (unix) {
-          return unix <= new Date().getTime();
         }
+      });
+      
+      // Search functionality for majors
+      $("#majorSearch").on("keyup", function() {
+        const value = $(this).val().toLowerCase();
+        $("#major option").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
       });
     });
   </script>
